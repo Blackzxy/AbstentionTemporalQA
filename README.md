@@ -12,7 +12,6 @@ This repository provides code and data for improving language models on temporal
 - [Project Structure](#project-structure)
 - [Data Processing](#data-processing)
 - [Training](#training)
-- [Evaluation](#evaluation)
 
 ## Data
 
@@ -58,13 +57,11 @@ AbstentionTemporalQA/
 │   │       ├── cot_generate.py
 │   │       └── system_message.txt
 │   ├── train/                          # Training scripts
-│   │   ├── llm_cot_sft.py              # Supervised fine-tuning
-│   │   ├── llm_rl.py                   # Reinforcement learning (GRPO)
-│   │   ├── train.sh                    # Training launcher
-│   │   └── ds_config                   # DeepSpeed configuration
-│   └── eval/                           # Evaluation scripts
-│       ├── gpt_direct_inference.py
-│       └── llm_inference_nontemporal.py
+│       ├── llm_cot_sft.py              # Supervised fine-tuning
+│       ├── llm_rl.py                   # Reinforcement learning (GRPO)
+│       ├── train.sh                    # Training launcher
+│       └── ds_config                   # DeepSpeed configuration
+│   
 ├── models/                             # Evaluation metrics
 │   ├── bertscore.py
 │   └── rouge.py
@@ -167,39 +164,9 @@ accelerate launch --config_file ds_config llm_rl.py
 ### Training Script
 
 ```bash
-# Run SFT
+# Run SFT/RL
 bash train.sh
 ```
 
 The script uses DeepSpeed for distributed training with the configuration in `ds_config`.
-
-## Evaluation
-
-### Temporal QA Evaluation
-
-```bash
-cd scripts/eval
-python llm_inference_nontemporal.py
-```
-
-**Metrics:**
-- **Accuracy**: Overall prediction accuracy
-- **Abstention Metrics**: Precision, Recall, F1 for abstention decisions
-- **ROUGE-L**: Semantic similarity for answers
-- **BERTScore**: Contextual similarity
-- **Exact Match (EM)**: Strict answer matching
-
-**Output:**
-- Logs with predictions vs. ground truth
-- Abstention statistics (True Positive, False Positive, False Negative)
-- Per-sample breakdown
-
-### GPT Baseline Evaluation
-
-```bash
-cd scripts/eval
-python gpt_direct_inference.py
-```
-
-Evaluates GPT models on the same tasks for comparison.
 
