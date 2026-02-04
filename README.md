@@ -13,7 +13,6 @@ This repository provides code and data for improving language models on temporal
 - [Data Processing](#data-processing)
 - [Training](#training)
 - [Evaluation](#evaluation)
-- [Model Architecture](#model-architecture)
 
 ## Data
 
