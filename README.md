@@ -1,6 +1,6 @@
 # AbstentionTemporalQA
 
-Official repository for the paper **"When Silence Is Golden: Can LLMs Learn to Abstain in Temporal QA and Beyond?"** (ICLR 2026).
+Official repository for the paper [**"When Silence Is Golden: Can LLMs Learn to Abstain in Temporal QA and Beyond?"** (ICLR 2026)](https://arxiv.org/abs/2602.04755).
 
 ## Overview
 
@@ -170,3 +170,16 @@ bash train.sh
 
 The script uses DeepSpeed for distributed training with the configuration in `ds_config`.
 
+## Citation
+If you find this repository is useful, please star🌟 this repo and cite🔗 our paper.
+```
+@misc{zhou2026silencegoldenllmslearn,
+      title={When Silence Is Golden: Can LLMs Learn to Abstain in Temporal QA and Beyond?}, 
+      author={Xinyu Zhou and Chang Jin and Carsten Eickhoff and Zhijiang Guo and Seyed Ali Bahrainian},
+      year={2026},
+      eprint={2602.04755},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2602.04755}, 
+}
+```
